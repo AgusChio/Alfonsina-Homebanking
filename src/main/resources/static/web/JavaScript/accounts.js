@@ -11,7 +11,6 @@ const app = createApp({
             active: true,
             accountType: "",
             modal:"modal__close",
-            messageAlert: "",
             alert: "",
         }
     },
@@ -41,7 +40,6 @@ const app = createApp({
             }
         },
         showModal(){
-            console.log(this.modal);
             if(this.modal == "modal__close"){
                 this.modal = "modal--show"
             } else {
@@ -53,14 +51,9 @@ const app = createApp({
                 .then(() => location.href = "/web/accounts.html")
                 .catch(response => {
                     this.error = response.response.status
-                    if(this.error == 409) {
-                        this.alert = 'The color of the cards cannot be repeated'
-                    } else if (this.error == 403){
-                        this.alert = 'Cannot create more cards'
-                        setTimeout(() => this.alert = '', 3000)
-                    } else {
-                        this.alert = 'You must complete all fields'
-                        setTimeout(() => this.alert = '', 3000)
+                    if(this.error == 400) {
+                        this.alert = 'Please choose account type'
+                        setTimeout(() => this.alert = '', 4000)
                     }
                 })
         },
