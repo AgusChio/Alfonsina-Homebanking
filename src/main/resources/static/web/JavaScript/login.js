@@ -14,10 +14,10 @@ const app = createApp({
     methods: {
         loadSingIn() {
             axios.post('/api/login', `email=${this.inputEmail}&password=${this.inputPassword}`)
-                .then(response => {
+                .then(() => {
                     axios.get('/api/clients')
-                        .then(response => location.href = '/web/manager.html')
-                        .catch(err => location.href = '/web/accounts.html')
+                        .then(() => location.href = '/web/manager.html')
+                        .catch(() => location.href = '/web/accounts.html')
                 })
                 .catch(err => {
                     this.error = err.response.data.status

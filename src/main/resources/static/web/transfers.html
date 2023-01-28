@@ -85,53 +85,93 @@
 
             <main class="container-accounts">
                 <div class="text">Make a transfer</div>
-                <form>
-                    <fieldset class="container-form">
-                        <legend>Transfer from:</legend>
-                        <div v-for="account in dataAccounts">
-                            <p>{{account.number}}</p>
-                            <input type="radio" :id="account.number" name="originAccount" :value="account.number" v-model="inputAccountOrigin">
-                            <label :for="account.number">Balance: ${{account.balance}}</label>
-                        </div>
-                    </fieldset>
+                <div class="container-form-image">
+                    <form>
+                        <fieldset class="container-form">
+                            <legend>Transfer from:</legend>
+                            <div v-for="account in dataAccounts">
+                                <p>{{account.number}}</p>
+                                <input type="radio" :id="account.number" name="originAccount" :value="account.number" v-model="inputAccountOrigin">
+                                <label :for="account.number">Balance: ${{account.balance}}</label>
+                            </div>
+                        </fieldset>
 
-                    <fieldset class="container-accounts-destiny">
-                        <legend>Transfer to:</legend>
-                        <div>
-                            <input type="radio" id="cuentaDestino" name="TypeCard" value="ownAccount" v-model="inputAccountDestiny">
-                            <label for="cuentaDestino">Own Account</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="cuentadestino" name="TypeCard" value="otherAccount" v-model="inputAccountDestiny">
-                            <label for="cuentadestino">Other Account</label>
-                        </div>
-                        <div v-show="inputAccountDestiny == 'ownAccount'">
-                            <select id="ownAccounts" v-model="inputSelectAccount">
-                                <template v-for=" account in selectedAccounts">
-                                    <option :value = "account">{{account}}</option>
-                                </template>
-                            </select>
-                            <label for="ownAccounts"></label>
-                        </div>
-                        <div v-show="inputAccountDestiny == 'otherAccount' ">
-                            <input type="text" id="otherAccounts" v-model="inputSelectAccount" class="inputs-border">
-                            <label for="otherAccounts"></label>
-                        </div>
-                    </fieldset>
+                        <fieldset class="container-accounts-destiny">
+                            <legend>Transfer to:</legend>
+                            <div>
+                                <input type="radio" id="cuentaDestino" name="TypeCard" value="ownAccount" v-model="inputAccountDestiny">
+                                <label for="cuentaDestino">Own Account</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="cuentadestino" name="TypeCard" value="otherAccount" v-model="inputAccountDestiny">
+                                <label for="cuentadestino">Other Account</label>
+                            </div>
+                            <div v-show="inputAccountDestiny == 'ownAccount'">
+                                <select id="ownAccounts" v-model="inputSelectAccount">
+                                    <template v-for=" account in selectedAccounts">
+                                        <option :value = "account">{{account}}</option>
+                                    </template>
+                                </select>
+                                <label for="ownAccounts"></label>
+                            </div>
+                            <div v-show="inputAccountDestiny == 'otherAccount' ">
+                                <input type="text" id="otherAccounts" v-model="inputSelectAccount" class="inputs-border">
+                                <label for="otherAccounts"></label>
+                            </div>
+                        </fieldset>
 
-                    <fieldset class="container-amount">
-                        <legend>Amount to transfer:</legend>
-                        <input type="number" id="amount" placeholder="2000" v-model="inputAmount" class="inputs-border">
-                    </fieldset>
+                        <fieldset class="container-amount">
+                            <legend>Amount to transfer:</legend>
+                            <input type="number" id="amount" placeholder="2000" v-model="inputAmount" class="inputs-border">
+                        </fieldset>
 
-                    <fieldset class="container-description">
-                        <legend>Description:</legend>
-                        <input type="text" id="description"  placeholder="Shopping" v-model="inputDescription" class="inputs-border">
-                    </fieldset>
+                        <fieldset class="container-description">
+                            <legend>Description:</legend>
+                            <input type="text" id="description"  placeholder="Shopping" v-model="inputDescription" class="inputs-border">
+                        </fieldset>
 
-                    <button @click.prevent="createTransaction" class="button-Make-Transactions  ov-btn-slide-bottom">Make Transaction</button>
+                        <button @click.prevent="createTransaction" class="button-Make-Transactions  ov-btn-slide-bottom">Make Transaction</button>
+                    </form>
+                    <div class="container-image">
+                        <img class="images-form" src="./Assets/Images/x-mas.png" alt="Promo x-mas">
+                    </div>
+                </div>
 
-                </form>
+                <div class="container-access-fast">
+                    <div class="text title-text-QA">Quick Access</div>
+                    <div class="container-navbar-quick-access">
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./accounts.html">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <span class="item-QA text"> Accounts </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./cards.html">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span class="item-QA text"> Cards </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./transfers.html">
+                                <i class="fa-solid fa-right-left"></i>
+                                <span class="item-QA text"> Transactions </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./loan-application.html">
+                                <i class="fa-solid fa-coins"></i>
+                                <span class="item-QA text"> Loans </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./payment.html">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                                <span class="item-QA text"> Payments </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     </div>

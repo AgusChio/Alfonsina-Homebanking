@@ -86,46 +86,88 @@
                 <div class="payment-title">
                     <h1>Payment Information</h1>
                 </div>
-                <form>
-                    <fieldset class="container-form">
-                        <legend>Please, choose the account:</legend>
-                        <template v-for="{balance, number} in accounts">
-                            <div>
-                                <label class="text-light fs-5" :for=number>{{number}} <span class="fw-bold me-2">Balance: ${{balance.toLocaleString()}}</span></label>
-                                <input type="radio" class="mb-4" :id="number" :value="number" name="accountOrigin" v-model="accountSelected"> 
+                <div class="container-form-image">
+                    <form>
+                        <fieldset class="container-form">
+                            <legend>Please, choose the account:</legend>
+                            <template v-for="{balance, number} in accounts">
+                                <div>
+                                    <label class="text-light fs-5" :for=number>{{number}} <span class="fw-bold me-2">Balance: ${{balance.toLocaleString()}}</span></label>
+                                    <input type="radio" class="mb-4" :id="number" :value="number" name="accountOrigin" v-model="accountSelected"> 
+                                </div>
+                            </template>
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Please, use full name: </legend>
+                                <label for="name">Full Name:</label>
+                                <input id="name" maxlength="20" type="text" v-model="cardHolderSelect">
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Use Number Card: </legend>
+                            <label class="form-check-label text-light fw-bold fs-5 me-2 mt-4" for="numberCard">Number Card:</label>
+                            <input style="width: 12rem;" id="numberCard" v-model="cardNumber" type="text" name="text" class="input-amount" placeholder="1111-1111-1111-1111">
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Use the Expiration Date: </legend>
+                            <label for="expirationdate">Expiration:</label>
+                            <input id="expirationdate" type="date" pattern="[0-9]*" v-model="expDate">
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Please, enter the security code: </legend>
+                            <label for="securitycode">Security Code</label>
+                            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" v-model="cvv">
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Amount to send: </legend>
+                            <label for="amount">Amount:</label>
+                            <input id="amount" type="number" v-model="amount" placeholder="$7000">
+                        </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Description: </legend>
+                            <textarea id="description" type="text" v-model="description"></textarea>
+                        </fieldset>
+                        <button class="create-accounts" @click.prevent="makePay">Make Pay</button>
+                    </form>
+                    <div class="container-image">
+                        <img class="images-form" src="./Assets/Images/winter-sale.png " alt="Promo x-mas">
+                    </div>
+                </div>
+
+                    <div class="container-access-fast">
+                        <div class="text title-text-QA">Quick Access</div>
+                        <div class="container-navbar-quick-access">
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./accounts.html">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                    <span class="item-QA text"> Accounts </span>
+                                </a>
                             </div>
-                        </template>
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Please, use full name: </legend>
-                            <label for="name">Full Name:</label>
-                            <input id="name" maxlength="20" type="text" v-model="cardHolderSelect">
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Use Number Card: </legend>
-                        <label class="form-check-label text-light fw-bold fs-5 me-2 mt-4" for="numberCard">Number Card:</label>
-                        <input style="width: 12rem;" id="numberCard" v-model="cardNumber" type="text" name="text" class="input-amount" placeholder="1111-1111-1111-1111">
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Use the Expiration Date: </legend>
-                        <label for="expirationdate">Expiration:</label>
-                        <input id="expirationdate" type="date" pattern="[0-9]*" v-model="expDate">
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Please, enter the security code: </legend>
-                        <label for="securitycode">Security Code</label>
-                        <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" v-model="cvv">
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Amount to send: </legend>
-                        <label for="amount">Amount:</label>
-                        <input id="amount" type="number" v-model="amount" placeholder="$7000">
-                    </fieldset>
-                    <fieldset class="container-form">
-                        <legend>Description: </legend>
-                        <textarea id="description" type="text" v-model="description"></textarea>
-                    </fieldset>
-                    <button class="create-accounts" @click.prevent="makePay">Make Pay</button>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./cards.html">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                    <span class="item-QA text"> Cards </span>
+                                </a>
+                            </div>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./transfers.html">
+                                    <i class="fa-solid fa-right-left"></i>
+                                    <span class="item-QA text"> Transactions </span>
+                                </a>
+                            </div>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./loan-application.html">
+                                    <i class="fa-solid fa-coins"></i>
+                                    <span class="item-QA text"> Loans </span>
+                                </a>
+                            </div>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./payment.html">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    <span class="item-QA text"> Payments </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
             </main>
         </div>
     </div>

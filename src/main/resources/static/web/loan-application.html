@@ -87,43 +87,83 @@
 
             <main class="container-accounts">
                 <div class="text">Make a Loan</div>
-                <form>
-                    <fieldset class="container-form">
-                        <legend>Please, choose the type of loan:</legend>
-                        <div v-for="loan in data">
-                            <input type="radio" :id="loan.name" name="loanName" :value="loan.id" v-model="inputTypeLoan">
-                            <label :for="loan.name">{{loan.name}}</label>
-                        </div>
-                        <p v-show="maxAmount > 0">Max Amount: ${{maxAmount}}</p>
-                    </fieldset>
+                <div class="container-form-image">
+                    <form>
+                        <fieldset class="container-form">
+                            <legend>Please, choose the type of loan:</legend>
+                            <div v-for="loan in data">
+                                <input type="radio" :id="loan.name" name="loanName" :value="loan.id" v-model="inputTypeLoan">
+                                <label :for="loan.name">{{loan.name}}</label>
+                            </div>
+                            <p v-show="maxAmount > 0">Max Amount: ${{maxAmount}}</p>
+                        </fieldset>
 
-                    <fieldset class="container-form">
-                        <legend>Please, enter the amount and Choose a quota</legend>
-                        <div>
-                            <label for="amount">Amount: </label>
-                            <input type="number" id="amount" name="amount" placeholder="min $50000"  v-model="inputAmount">
-                        </div>
-                        <div v-for="payments in allPayments">
-                            <input type="radio" :id="payments" name="payments" :value="payments"  v-model="inputPayments">
-                            <label for="payments">{{payments}}</label>
-                        </div>
-                        <div>
-                            <p>Value of the quota with interest:</p>
-                            <p v-if="interestQuotaAmount > 0">{{interestQuotaAmount.toFixed(2)}}</p>
-                        </div>
-                    </fieldset>
+                        <fieldset class="container-form">
+                            <legend>Please, enter the amount and Choose a quota</legend>
+                            <div>
+                                <label for="amount">Amount: </label>
+                                <input type="number" id="amount" name="amount" placeholder="min $50000"  v-model="inputAmount">
+                            </div>
+                            <div v-for="payments in allPayments">
+                                <input type="radio" :id="payments" name="payments" :value="payments"  v-model="inputPayments">
+                                <label for="payments">{{payments}}</label>
+                            </div>
+                            <div>
+                                <p>Value of the quota with interest:</p>
+                                <p v-if="interestQuotaAmount > 0">{{interestQuotaAmount.toFixed(2)}}</p>
+                            </div>
+                        </fieldset>
 
-                    <fieldset class="container-form">
-                        <legend>Please, choose the Account:</legend>
-                        <div v-for="account in dataAccounts">
-                            <input type="radio" :id="account.number" name="accountDestinyLoan" :value="account.number" v-model="inputAccountDestiny">
-                            <label :for="account.number">{{account.number}}</label>
+                        <fieldset class="container-form">
+                            <legend>Please, choose the Account:</legend>
+                            <div v-for="account in dataAccounts">
+                                <input type="radio" :id="account.number" name="accountDestinyLoan" :value="account.number" v-model="inputAccountDestiny">
+                                <label :for="account.number">{{account.number}}</label>
+                            </div>
+                        </fieldset>
+
+                        <button @click.prevent="createLoan" class="button-Make-Transactions  ov-btn-slide-bottom">Make Loan</button>
+                    </form>
+                    <div class="container-image">
+                        <img class="images-form" src="./Assets/Images/cyber-monday.png" alt="Promo x-mas">
+                    </div>
+                </div>
+
+                <div class="container-access-fast">
+                    <div class="text title-text-QA">Quick Access</div>
+                    <div class="container-navbar-quick-access">
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./accounts.html">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <span class="item-QA text"> Accounts </span>
+                            </a>
                         </div>
-                    </fieldset>
-
-                    <button @click.prevent="createLoan" class="button-Make-Transactions  ov-btn-slide-bottom">Make Loan</button>
-
-                </form>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./cards.html">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span class="item-QA text"> Cards </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./transfers.html">
+                                <i class="fa-solid fa-right-left"></i>
+                                <span class="item-QA text"> Transactions </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./loan-application.html">
+                                <i class="fa-solid fa-coins"></i>
+                                <span class="item-QA text"> Loans </span>
+                            </a>
+                        </div>
+                        <div class="item-quick-access ov-btn-slide-left">
+                            <a href="./payment.html">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                                <span class="item-QA text"> Payments </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     </div>

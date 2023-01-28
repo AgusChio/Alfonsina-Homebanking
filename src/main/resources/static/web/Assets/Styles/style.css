@@ -36,6 +36,11 @@ body{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 4 4'%3E%3Cpath fill='%2300d0a6' fill-opacity='0.45' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
+input{
+    margin: 5px;
+    padding: 5px;
+}
+
 
 
 
@@ -494,12 +499,15 @@ main{
 
 .container-navbar-quick-access{
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .container-access-fast .text{
     padding-top: 10px;
     display: flex;
     align-items: center;
+    font-size: 12px !important;
 }
 
 .container-access-fast .title-text-QA{
@@ -663,12 +671,6 @@ main{
     width: 10vw;
     height: 8vh !important;
 }
-
-.inputs-border{
-    border-radius: 1rem;
-    border: 0.5px black solid;
-}
-
 
 /* ---------- Cards ---------- */
 
@@ -915,6 +917,25 @@ main{
 }
 
 /* ----------- Create Transactions ----------- */
+
+.container-form-image{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.images-form{
+    width: 90%;
+    height: 60vh;
+    border-radius: 0.5rem;
+    box-shadow: #0096a782 3px 3px 3px;
+}
+
+form{
+    width: 45% !important;
+}
 
 .container-form{
     background-color: rgb(219, 251, 244);
@@ -1335,7 +1356,7 @@ main{
 
     .container-navbar-quick-access{
         width: 110%;
-        height: 30vh;
+        height: 50vh;
     }
 
     .ov-btn-slide-left{
@@ -1426,9 +1447,19 @@ main{
         margin-bottom: 10px;
     }
 
+    form{
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
     .space-cards {
         margin-left: 0px;
         margin-bottom: 20px;
+    }
+
+    .images-form{
+        width: 100%;
+        height: 30vh;
     }
 
 }
@@ -1446,10 +1477,13 @@ main{
         height: 190vh !important;
     }
 
-        .container-accounts-backgraound{
-            height: 60vh;
-        }
-        
+    .container-navbar-quick-access{
+        height: 30vh !important;
+    }
+
+    .container-accounts-backgraound{
+        height: 60vh;
+    }
 
     .accountsCards{
         margin-bottom: 4rem;
@@ -1553,6 +1587,20 @@ main{
 
     .card__space-70 {
         height: 4.5vh;
+    }
+
+    .container-form-image{
+        flex-direction: column;
+    }
+
+    form{
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .images-form{
+        width: 100%;
+        height: 40vh;
     }
 
 }

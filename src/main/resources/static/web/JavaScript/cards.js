@@ -41,20 +41,22 @@ const app = createApp({
             location.href="/web/create-cards.html"
         },
         deleteCard(id) {
-            axios.patch(`/api/clients/current/cards/${id}`)
-            .then(()=> {
-                this.card = this.cardsData.filter(c => c.id == id);
-                this.active= this.card[0].active_card;
-                if (this.active){
-                    this.active=false;
-                }
-                location.href = "/web/cards.html"
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        
-        },
+			Swal.fire({
+				title: "Do you wanna delete this account?",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonText: "Delete",
+			}).then((result) => {
+				if (result.isConfirmed) {
+					axios.patch(`/api/clients/current/cards/${id}`)
+						.then((response) => {
+							Swal.fire("Deleted", "", "success");
+							location.href = "/web/cards.html";
+						})
+						.catch(err => console.log(err));
+				}
+			});
+		},
         logOut() {
             axios.post('/api/logout')
                 .then(() => location.href = '/web/index.html')

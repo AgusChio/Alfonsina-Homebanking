@@ -11,6 +11,8 @@ const app = createApp({
             active: true,
             accountType: "",
             modal:"modal__close",
+            messageAlert: "",
+            alert: "",
         }
     },
     created() {
@@ -21,7 +23,6 @@ const app = createApp({
             axios.get("/api/clients/current")
                 .then(response => {
                     this.data = response.data
-                    console.log(this.data)
                     this.clientLoans = this.data.loans
                     this.dataAccounts = this.data.accounts
                     this.dataAccounts.sort((a,b)=>{
@@ -50,19 +51,45 @@ const app = createApp({
         addAccount(){
             axios.post('/api/clients/current/accounts',`accountType=${this.accountType}`)
                 .then(() => location.href = "/web/accounts.html")
+                .catch(response => {
+                    this.error = response.response.status
+                    if(this.error == 409) {
+                        this.alert = 'The color of the cards cannot be repeated'
+                    } else if (this.error == 403){
+                        this.alert = 'Cannot create more cards'
+                        setTimeout(() => this.alert = '', 3000)
+                    } else {
+                        this.alert = 'You must complete all fields'
+                        setTimeout(() => this.alert = '', 3000)
+                    }
+                })
         },
-        deleteAccount(id){
-            axios.patch(`/api/clients/current/accounts/${id}`)
-            .then(() => {
-                this.account = this.dataAccounts.filter(account => account.id == id);
-                this.active = this.account[0].active_account;
-                if (this.active){
-                    this.active = false;
-                }
-                location.href = "/web/accounts.html"
-            })
-            .catch(err => console.log(err));
-        },
+        deleteAccount(id) {
+			Swal.fire({
+				title: "Do you wanna delete this account?",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonText: "Delete",
+			}).then((result) => {
+				if (result.isConfirmed) {
+					axios.patch(`/api/clients/current/accounts/${id}`)
+						.then((response) => {
+							Swal.fire("Deleted", "", "success");
+							location.href = "/web/accounts.html";
+						})
+						.catch(response => {
+                            this.messageAlert = response.response.data
+                            if(this.messageAlert == "Cannot delete a account with balance"){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: "Cannot delete a account with balance",
+                                })
+                            }
+						});
+				}
+			});
+		},
         locationLoan(){
             location.href="/web/loan-application.html"
         },

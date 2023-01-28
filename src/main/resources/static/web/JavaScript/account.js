@@ -54,8 +54,28 @@ const app = createApp({
                 link.setAttribute("download", "transactions.pdf")
                 document.body.appendChild(link)
                 link.click()
+                Swal.fire(
+                    'One moment...download done!',
+                    'Look at in the file with your transactions',
+                    'success'
+                )
             })
-            .catch()
+            .catch(() => {
+                if(this.yearStartSelected > this.yearEndSelected) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'The start date cannot be greater than the end date',
+                    })
+                }
+                else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please, fill both fields',
+                    })
+                }
+            })
         },
 
         toggleNav(){

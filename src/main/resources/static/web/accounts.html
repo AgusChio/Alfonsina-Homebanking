@@ -135,6 +135,7 @@
                                     <input name="account" value="CURRENT" id="current" type="radio" v-model="accountType">
                                 </div>
                             </div>
+                            {{alert}}
                             <a href="#" class="modal__close" @Click="addAccount">Creat Account</a>
                             <a href="#" :class="modal + ' button-close-modal' " @Click="showModal">Close</a>
                         </div>
@@ -144,21 +145,33 @@
                         <div class="text title-text-QA">Quick Access</div>
                         <div class="container-navbar-quick-access">
                             <div class="item-quick-access ov-btn-slide-left">
-                                <a href="../web/loans.html">
-                                    <i class="fa-solid fa-coins"></i>
-                                    <span class="item-QA text"> Loans </span>
+                                <a href="./accounts.html">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                    <span class="item-QA text"> Accounts </span>
                                 </a>
                             </div>
                             <div class="item-quick-access ov-btn-slide-left">
-                                <a href="#">
+                                <a href="./cards.html">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                    <span class="item-QA text"> Cards </span>
+                                </a>
+                            </div>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./transfers.html">
                                     <i class="fa-solid fa-right-left"></i>
                                     <span class="item-QA text"> Transactions </span>
                                 </a>
                             </div>
                             <div class="item-quick-access ov-btn-slide-left">
-                                <a href="#">
+                                <a href="./loan-application.html">
+                                    <i class="fa-solid fa-coins"></i>
+                                    <span class="item-QA text"> Loans </span>
+                                </a>
+                            </div>
+                            <div class="item-quick-access ov-btn-slide-left">
+                                <a href="./payment.html">
                                     <i class="fa-solid fa-file-invoice-dollar"></i>
-                                    <span class="item-QA text"> Pay Services </span>
+                                    <span class="item-QA text"> Payments </span>
                                 </a>
                             </div>
                         </div>
