@@ -1,0 +1,1559 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+:root{
+    --body-color: #fff;
+    --sidebar-color: linear-gradient(to top, #00d0a6, #24d4ae, #36d8b5, #46dbbd, #53dfc4);
+    --primary-color: #56ebc8;
+    --primary-color-light: #f9eaec;
+    --toggle-color: #fff;
+    --text-color: #000;
+    --container-color: #9c9b9b; 
+
+    --trans-01: all 0.1s ease;
+    --trans-02: all 0.2s ease;
+    --trans-03: all 0.3s ease;
+    --trans-04: all 0.4s ease;
+    --trans-05: all 0.5s ease;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--trans-03);
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 4 4'%3E%3Cpath fill='%2300d0a6' fill-opacity='0.45' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+
+
+/* ---- SideBar ----*/
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+
+    z-index: 2;
+}
+
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--trans-01);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    justify-content: center;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar.close{
+    width: 88px;
+    height: 100%;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    min-width: 60px;
+}
+
+.sidebar li .text{
+    color: var(--text-color);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--trans-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--body-color) ;
+    padding: 2px;
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--text-color);
+    transition: var(--trans-02);
+}
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .image-text .image svg{
+    width: 50px;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+
+.header-text .profession{
+    margin-top: -2px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--body-color);
+    font-size: 22px;
+    transition: var(--trans-05);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+.sidebar .menu{
+    margin-top: 35px;
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+
+/* ---------- Main ---------- */
+
+main{
+    box-shadow: #157d89b4 3px 3px 3px;
+    width: 100%;
+    height: 130vh !important;
+    margin: 40px 0px 0px 60px;
+    padding: 15px;
+    border-radius: 1rem;
+}
+
+.name-card-red{
+    color: red;
+    text-decoration: line-through;
+}
+
+.container-accounts-backgraound{
+    height: 40vh;
+    background-color: rgb(193, 246, 235);
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: #157d89b4 3px 3px 3px;
+}
+
+.create-alert{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.create-accounts{
+    margin: auto;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    background-color: #2973B5;
+    padding: 10px;
+}
+
+.container-accounts{
+    position: relative;
+    left: 219px;
+    height: 100vh;
+    width: 78%;
+    background: var(--body-color) ;
+    transition: var(--trans-03);
+}
+
+.container-accounts .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.container-access-fast .text{
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.sidebar.close ~ .container-accounts{
+    left: 88px;
+    width: calc(93% - 88px);
+}
+
+.container-accounts .container-card{
+    font-size: 14px;
+    color: var(--text-color);
+    height: 80%;
+}
+
+.container-card-account{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    padding: 20px 0 0 20px;
+    width: 300px;
+    height: 180px;
+    
+}
+
+.accountsCards:hover{
+    transform: translateX(3px) translateY(-3px);
+    transition: var(--trans-02);
+    box-shadow: 3px 4px 3px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.accountsCards{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 180px;
+    margin-bottom: 1rem;
+    margin-right: 20px;
+}
+
+.title-text{
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.container-date-transaction{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    height: 3vh;
+    padding: 0 20px 0 0;
+}
+
+.see-transactions{
+    text-decoration:  none;
+    background-color: var(--body-color);
+    color: #000;
+    padding: 5px;
+    border-radius: 8px;
+    border: var(--text-color) 1px solid;
+    box-shadow: #18191A 1px 1px 1px;
+}
+
+.text-date{
+    padding: 5px;
+}
+
+.text-card{
+    margin-bottom: 20px;
+}
+
+.container-accounts-client{
+    display: flex;
+}
+
+.container-image-promotion{
+    display: flex;
+    justify-content: center;
+}
+
+.image-promotion-int{
+    width: 80%;
+    height: 40vh;
+    border-radius: 1rem;
+    margin: 0px 0px 50px 0px;
+}
+
+
+
+
+/* ---------- MODAL --------- */
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+.modal__container{
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition:var(--transition);
+}
+
+.modal__title{
+    font-size: 2.5rem;
+}
+
+.modal__paragraph{
+    margin-bottom: 10px;
+}
+
+.modal__img{
+    width: 90%;
+    max-width: 300px;
+}
+
+.modal__close{
+    text-decoration: none;
+    color: #fff;
+    background-color: #0288D1;
+    padding: 1em 3em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.modal__close:hover{
+    color: #0288D1;
+    background-color: #fff;
+}
+
+.button-close-modal{
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(255, 68, 68);
+    padding: 1em 3em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.button-close-modal:hover{
+    color: rgb(255, 68, 68);
+    background-color: #fff;
+}
+
+
+
+
+@media (max-width:800px) {
+    .nav__list{
+        display: none;
+    }
+
+    .nav__menu{
+        display: block;
+    }
+
+    .hero__main{
+        grid-template-columns: 1fr;
+        grid-template-rows:max-content max-content ;
+        text-align: center;
+    }
+
+    .hero__picture{
+        grid-row: 1/2;
+    }
+
+    .hero__img{
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .modal__container{
+        padding: 2em 1.5em;
+    }
+
+    .modal__title{
+        font-size: 2rem;
+    }
+}
+
+
+
+
+/* ---------- Quick Access ---------- */
+
+.container-navbar-quick-access{
+    padding-top: 10px;
+    width: 80%;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+.item-quick-access {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+.item-quick-access a{
+    text-decoration: none;
+    font-weight: 100 !important;
+}
+
+.item-quick-access a i{
+    display: flex;
+    justify-content: center;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.container-navbar-quick-access{
+    width: 100%;
+}
+
+.container-access-fast .text{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.container-access-fast .title-text-QA{
+    height: 10vh;
+    font-size: 20px !important;
+    font-weight: 300 !important;
+}
+
+.item-QA{
+    padding: 0px !important;
+    font-size: 12px !important;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* ---------- Hover Quick Access ---------- */
+
+.ov-btn-slide-left {
+    background: #fff; /* color de fondo */
+    width: 10vw;
+    height: 10vh;
+    color: var(--text-color); /* color de fuente */
+    border: 2px solid var(--primary-color); /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 1rem; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.ov-btn-slide-left:hover {
+    color: #fff; /* color de fuente hover */
+}
+
+.ov-btn-slide-left::after {
+    content: "";
+    background: var(--primary-color); /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.ov-btn-slide-left:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+
+
+
+
+/* --------- Container Loans --------- */
+
+.Container-loans-background{
+    border: 0.5px  solid #0097a7;
+    border-radius: 1rem;
+    box-shadow: #157d89b4 3px 3px 3px;
+    padding: 10px;
+}
+
+.container-info-loans{
+    padding: 10px;
+    font-size: 14px;
+    border: var(--primary-color) solid 2px;
+    border-radius: 1rem;
+    width: 20vw;
+    margin-right: 1rem;
+}
+
+.title-type-loan{
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.container-info-loans:hover{
+    box-shadow: #b8b8b8 2px 2px 2px;
+}
+
+.title-Loans{
+    margin-bottom: 10px;
+}
+
+.container-card-loans{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.create-loans{
+    margin: auto;
+    border-radius: 1rem;
+    color: #FFFFFF;
+    background-color: #008DC6;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.bold-size{
+    font-weight: 500 !important;
+}
+
+
+
+
+
+/* ---------- Transaccions ---------- */
+.container-transaction{
+    margin: 40px 20px 0px 50px;
+    height: 100vh;
+    width: 92%;
+    /* margin: auto; */
+    background: var(--body-color) ;
+}
+
+.container-transaction .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.container-transaction .text-account{
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.button-back{
+    background-color: var(--primary-color);
+    width: 10vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    border-radius: 0.8rem;
+}
+
+.icon-back{
+    font-size: 20px;
+}
+
+.logo{
+    width: 10vw;
+    height: 8vh !important;
+}
+
+.inputs-border{
+    border-radius: 1rem;
+    border: 0.5px black solid;
+}
+
+
+/* ---------- Cards ---------- */
+
+.container-cards{
+    position: relative;
+    left: 180px;
+    height: 140vh;
+    width: 83%;
+    background: var(--body-color) ;
+    transition: var(--trans-03);
+}
+
+.sidebar.close ~ .container-cards{
+    left: 88px;
+    width: calc(93% - 88px);
+}
+
+.container-cards .text{
+    font-size: 30px !important;
+    font-weight: 500 !important;
+}
+
+.second-text-cards{
+    font-weight: 400;
+}
+
+.container-cards .second-text-cards{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.container-card-credit{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: rgb(193, 246, 235);
+    border-radius: 1rem;
+    padding: 20px;
+    box-shadow: #0096a7bb 2px 2px 2px;
+}
+
+.container-card-debits{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: rgb(193, 246, 235);
+    border-radius: 1rem;
+    padding: 20px;
+    box-shadow: #0096a7bb 2px 2px 2px;
+}
+
+.space-cards{
+    margin-left: 50px;
+}
+
+.card{
+    width: 320px;
+    height: 190px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective:600px;
+}
+
+.card__part{
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    width: 320px;
+    height: 190px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    -webkit-transition: all 1.2s cubic-bezier(0,-0.02,.22,1); 
+    -moz-transition: all 1.2s cubic-bezier(0,-0.02,.22,1);
+    -ms-transition: all 1.2s cubic-bezier(0,-0.02,.22,1);
+    -o-transition: all 1.2s cubic-bezier(0,-0.02,.22,1);
+    transition: all 1.2s cubic-bezier(0,-0.02,.22,1);
+    transform: preserve-3d;
+    transform: preserve-3d;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__front{
+    padding: 18px;
+    transform: rotateY(0);
+    -moz-transform: rotateY(0);
+}
+
+.card__back {
+    padding: 18px 0;
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 38px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 30px;
+}
+
+.card__front-logo{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+.card__square {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.card_number {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: #303030 2px 2px 2px ;
+}
+
+.name-date{
+    display: flex;
+}
+
+.card__space-75 {
+    width: 75%;
+}
+
+.card__space-70 {
+    font-size: 5px;
+    width: 70%;
+    height: 5.7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+    text-shadow: #303030 2px 2px 2px ;
+}
+
+.card__info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: #303030 2px 2px 2px ;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position:relative;
+}
+
+.card__secret:before{
+    content:'';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: calc(100% + 6px);
+    width: calc(100% - 42px);
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.card:hover .card__front {
+    transform:  rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.card:hover .card__back {
+    transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+.name-card{
+    font-size: 12px;
+}
+
+.name-card-number{
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: right;
+    text-shadow: #303030 2px 2px 2px ;
+}
+
+
+.golden-card{
+    background: url(../Images/golden.jpeg);
+}
+
+.silver-card{
+    background: url(../Images/silver.jpeg);
+}
+
+.titanium-card{
+    background: url(../Images/titanium.jpeg);
+}
+
+/* ----------- Create Transactions ----------- */
+
+.container-form{
+    background-color: rgb(219, 251, 244);
+    padding: 10px ;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 0.5px solid;
+    border-radius: 1rem;
+    box-shadow: #0096a7bb 2px 2px 2px;
+    margin-bottom: 20px;
+}
+
+.container-accounts-destiny{
+    background-color: rgb(219, 251, 244);
+    padding: 10px ;
+    display: flex;
+    gap: 20px;
+    border: 0.5px solid;
+    border-radius: 1rem;
+    box-shadow: #0096a7bb 2px 2px 2px;
+    margin-bottom: 20px;
+}
+
+.container-amount{
+    background-color: rgb(219, 251, 244);
+    padding: 10px ;
+    display: flex;
+    gap: 20px;
+    border: 0.5px solid;
+    border-radius: 1rem;
+    box-shadow: #0096a7bb 2px 2px 2px;
+    margin-bottom: 20px;
+}
+
+.container-description{
+    background-color: rgb(219, 251, 244);
+    padding: 10px ;
+    display: flex;
+    gap: 20px;
+    border: 0.5px solid;
+    border-radius: 1rem;
+    box-shadow: #0096a7bb 2px 2px 2px;
+    margin-bottom: 20px;
+}
+
+.button-Make-Transactions{
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/*** ESTILOS BOTÓN SLIDE BOTTOM ***/
+.ov-btn-slide-bottom {
+    background: #fff; /* color de fondo */
+    color: #0288D1; /* color de fuente */
+    font-weight: 500;
+    border: 2px solid #0288D1; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 1rem; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.ov-btn-slide-bottom:hover {
+    color: #fff; /* color de fuente hover */
+}
+
+.ov-btn-slide-bottom::after {
+    content: "";
+    background: #0288D1; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 100%;
+    bottom: -100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.ov-btn-slide-bottom:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+
+/* ----------- Payments ----------- */
+
+.payment-title {
+    width: 100%;
+    text-align: center;
+}
+/* CREDIT CARD IMAGE STYLING */
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    max-height: 251px;
+    height: 54vw;
+    padding: 20px;
+}
+
+#ccsingle {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+
+#ccsingle svg {
+    width: 100px;
+    max-height: 60px;
+}
+
+.creditcard svg#cardfront,
+.creditcard svg#cardback {
+    width: 100%;
+    -webkit-box-shadow: 1px 5px 6px 0px black;
+    box-shadow: 1px 5px 6px 0px black;
+    border-radius: 22px;
+}
+
+#generatecard{
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    color: #fff;
+    padding: 2px 4px;
+    background-color: #909090;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+}
+
+/* CHANGEABLE CARD ELEMENTS */
+.creditcard .lightcolor,
+.creditcard .darkcolor {
+    -webkit-transition: fill .5s;
+    transition: fill .5s;
+}
+
+.creditcard .lightblue {
+    fill: #03A9F4;
+}
+
+.creditcard .lightbluedark {
+    fill: #0288D1;
+}
+
+.creditcard .red {
+    fill: #ef5350;
+}
+
+.creditcard .reddark {
+    fill: #d32f2f;
+}
+
+.creditcard .purple {
+    fill: #ab47bc;
+}
+
+.creditcard .purpledark {
+    fill: #7b1fa2;
+}
+
+.creditcard .cyan {
+    fill: #26c6da;
+}
+
+.creditcard .cyandark {
+    fill: #0097a7;
+}
+
+.creditcard .green {
+    fill: #66bb6a;
+}
+
+.creditcard .greendark {
+    fill: #388e3c;
+}
+
+.creditcard .lime {
+    fill: #d4e157;
+}
+
+.creditcard .limedark {
+    fill: #afb42b;
+}
+
+.creditcard .yellow {
+    fill: #ffeb3b;
+}
+
+.creditcard .yellowdark {
+    fill: #f9a825;
+}
+
+.creditcard .orange {
+    fill: #ff9800;
+}
+
+.creditcard .orangedark {
+    fill: #ef6c00;
+}
+
+.creditcard .grey {
+    fill: #bdbdbd;
+}
+
+.creditcard .greydark {
+    fill: #616161;
+}
+
+/* FRONT OF CARD */
+#svgname {
+    text-transform: uppercase;
+}
+
+#cardfront .st2 {
+    fill: #FFFFFF;
+}
+
+#cardfront .st3 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+}
+
+#cardfront .st4 {
+    font-size: 54.7817px;
+}
+
+#cardfront .st5 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+#cardfront .st6 {
+    font-size: 33.1112px;
+}
+
+#cardfront .st7 {
+    opacity: 0.6;
+    fill: #FFFFFF;
+}
+
+#cardfront .st8 {
+    font-size: 24px;
+}
+
+#cardfront .st9 {
+    font-size: 36.5498px;
+}
+
+#cardfront .st10 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+#cardfront .st11 {
+    font-size: 16.1716px;
+}
+
+#cardfront .st12 {
+    fill: #4C4C4C;
+}
+
+/* BACK OF CARD */
+#cardback .st0 {
+    fill: none;
+    stroke: #0F0F0F;
+    stroke-miterlimit: 10;
+}
+
+#cardback .st2 {
+    fill: #111111;
+}
+
+#cardback .st3 {
+    fill: #F2F2F2;
+}
+
+#cardback .st4 {
+    fill: #D8D2DB;
+}
+
+#cardback .st5 {
+    fill: #C4C4C4;
+}
+
+#cardback .st6 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+#cardback .st7 {
+    font-size: 27px;
+}
+
+#cardback .st8 {
+    opacity: 0.6;
+}
+
+#cardback .st9 {
+    fill: #FFFFFF;
+}
+
+#cardback .st10 {
+    font-size: 24px;
+}
+
+#cardback .st11 {
+    fill: #EAEAEA;
+}
+
+#cardback .st12 {
+    font-family: 'Rock Salt', cursive;
+}
+
+#cardback .st13 {
+    font-size: 37.769px;
+}
+
+/* FLIP ANIMATION */
+.container {
+    perspective: 1000px;
+}
+
+.creditcard {
+    width: 100%;
+    max-width: 400px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.6s;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    transition: transform 0.6s, -webkit-transform 0.6s;
+    cursor: pointer;
+}
+
+.creditcard .front,
+.creditcard .back {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #47525d;
+}
+
+.creditcard .back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.creditcard.flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+
+
+
+/* MOBILE */
+
+@media screen and (min-width: 360px) and (max-width: 760px){
+    h1{
+        font-size: 18px;
+    }
+
+    main{
+        margin: 40px 0px 0px 20px;
+        padding: 15px;
+        height: 250vh !important;
+        }
+
+    .accountsCards{
+        width: 220px;
+        box-shadow: 3px 4px 3px 0px rgba(0, 0, 0, 0.15);
+        border-radius: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .container-accounts-backgraound{
+        height: 85vh;
+    }
+    
+
+    .container-accounts{
+        height: 95%;
+    }
+
+    .text-date{
+        font-size: 12px;
+    }
+
+    .see-transactions{
+        font-size: 10px;
+    }
+
+    .container-accounts-client{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .item-quick-access .item-QA{
+        font-size: 9px !important;
+    }
+
+    .container-navbar-quick-access{
+        width: 110%;
+        height: 30vh;
+    }
+
+    .ov-btn-slide-left{
+        width: 25vw;
+        height: 12vh;
+    }
+
+    .container-card-account{
+        width: 220px;
+        height: 180px;
+    }
+
+    .container-transaction .text{
+        font-size: 15px;
+    }
+
+    .container-transaction .text-account{
+        font-size: 14px;
+    }
+
+    .container-transaction{
+        margin: auto;
+    }
+
+    .table{
+        font-size: 9px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .button-back{
+        background-color: var(--primary-color);
+        width: 25vw;
+        height: 5vh;
+        font-size: 12px;
+    }
+
+    .icon-back{
+        font-size: 15px;
+    }
+
+    .logo{
+        width: 20vw;
+        height: 8vh;
+    }
+
+    .container-card-loans {
+        width: 80%;
+    }
+
+    .container-info-loans {
+        width: 80vh;
+        margin-bottom: 1rem;
+    }
+
+    .card__front{
+        width: 55vw;
+    }
+
+    .card__back{
+        width: 55vw
+    }
+
+    .container-card-credit{
+        flex-direction: column;
+        height: 100vh;
+    }
+    .container-card-debits{
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .card_number {
+        font-size: 12px !important;
+    }
+
+
+    .card__space-70 {
+        height: 10vh;
+    }
+
+    .card__info{
+        font-size: 12px;
+    }
+
+    .create-accounts{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .space-cards {
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+
+}
+
+
+
+/* TABLETS */
+@media screen and (min-width: 761px) and (max-width: 1024px){
+    .sidebar.close ~ .container-accounts {
+        height: 100%;
+    }
+
+    main{
+        width: 78% !important;
+        height: 190vh !important;
+    }
+
+        .container-accounts-backgraound{
+            height: 60vh;
+        }
+        
+
+    .accountsCards{
+        margin-bottom: 4rem;
+    }
+
+    .container-accounts {
+        width: 70%;
+        height: 100%;
+    }
+
+    .table-transaction{
+        padding: 40px 0px 0px 40px;
+    }
+    .container-date-transaction{
+        height: 3vh;
+    }
+    .container-accounts-client{
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+    .container-accounts .container-card{
+        padding: 5px 0px 5px 40px;
+    }
+
+    .container-card-account{
+        padding: 20px 0 0 20px;
+        width: 300px;
+        height: 180px;
+    }
+    
+    .container-accounts .text{
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--text-color);
+        padding: 50px 0px 10px 40px;
+    }
+
+    .button-back{
+        background-color: var(--primary-color);
+        width: 10vw;
+        height: 5vh;
+        font-size: 12px;
+    }
+
+    .ov-btn-slide-left{
+        width: 20vw;
+        height: 10vh;
+    }
+
+    .icon-back{
+        font-size: 15px;
+    }
+
+    .logo{
+        width: 15vw;
+        height: 8vh;
+    }
+
+    .container-navbar-quick-access {
+        width: 100% !important;
+        height: 15vh;
+    }
+
+    .container-card-loans {
+        width: 100%;
+    }
+
+    .container-info-loans {
+        width: 30vw;
+        margin-bottom: 10px;
+    }
+
+    .card__front{
+        width: 40vw;
+    }
+
+    .card__back{
+        width: 40vw;
+    }
+
+    .card_number{
+        font-size: 18px;
+    }
+
+    .card__info{
+        font-size: 12px;
+    }
+
+    .container-card-credit{
+        flex-direction: column;
+        height: 70vh;
+        padding: 0px 0px 0px 0px;
+    }
+    .container-card-debits{
+        flex-direction: column;
+        height:70vh;
+    }
+
+    .card__space-70 {
+        height: 4.5vh;
+    }
+
+}
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../fontawesome-free-6.2.1-web/css/all.css">
+	<link rel="stylesheet" type="text/css" href="./Assets/Styles/create-card.css">
+	<link rel="stylesheet" type="text/css" href="./Assets/Styles/util.css">
+	<link rel="shortcut icon" href="./Assets/Images/arrow-right-to-bracket-solid.png" type="image/x-icon">
+	<title>Alfonsina Homebanking || Login</title>
+</head>
+<body>
+	<div class="bg-back">
+		<button onclick="history.back()" class="button-back">Go Back</button> 
+	</div>
+	<div class="limiter" id="app">
+		<div class="container-login100">
+			<form class="login100-form validate-form">
+				<span class="login100-form-title">
+					Create new Card
+				</span>
+                <h4>Type Card:</h4>
+                <div class="container-radio-type-cards">
+                    <div>
+                        <input type="radio" id="Credit" name="TypeCard" value="CREDIT" v-model="inputTypeCard">
+                        <label for="Credit">Credit</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Debit" name="TypeCard" value="DEBIT" v-model="inputTypeCard">
+                        <label for="Debit">Debit</label>
+                    </div>
+                </div>
+
+                <h4>Color Card:</h4>
+                <div class="container-radio-type-cards">
+                    <div>
+                        <input type="radio" id="Silver" name="ColorCard" value="SILVER" v-model="inputColorCard">
+                        <label for="Silver">Silver</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Gold" name="ColorCard"  value="GOLD" v-model="inputColorCard">
+                        <label for="Gold">Gold</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Titanium" name="ColorCard" value="TITANIUM" v-model="inputColorCard">
+                        <label for="Titanium">Titanium</label>
+                    </div>
+                </div>
+
+                <h4>Select the account you want the card to belong to</h4>
+                <select v-model="accountSelected">
+                    <option value="" disabled>Select Account</option>
+                    <template v-for="{number} of dataAccounts">
+                        <option :value="number">{{number}}</option>
+                    </template>
+                </select>
+                
+                <p>{{alert}}</p>
+
+					
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn" @click.prevent="createCards">
+						Create Card
+					</button>
+				</div>
+				</form>
+		</div>
+	</div>
+	
+	
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./JavaScript/create-card.js"></script>
+</body>
+</html>
