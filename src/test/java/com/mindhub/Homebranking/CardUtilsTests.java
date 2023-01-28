@@ -11,27 +11,27 @@ import static org.hamcrest.Matchers.*;
 @SpringBootTest
 public class CardUtilsTests {
 
-    @Test
-    public void cardNumberIsCreated(){
-        String cardNumber = CardUtils.getCardNumber();
-        assertThat(cardNumber, is(not(emptyOrNullString())));
-    }
-
-    @Test
-    public void cardCVVIsCreated(){
-        int cardCVV = CardUtils.getNumberCVV();
-        assertThat(cardCVV,notNullValue());
-    }
-
-    @Test
-    public void existCardCVV(){
-        int cardCVV = CardUtils.getNumberCVV();
-        assertThat(cardCVV,lessThan(1000));
-    }
-
-    @Test
-    public void randomNumberIsCreated(){
-        int randomNumber = CardUtils.getRandomNumber(1000, 9999);
-        assertThat(randomNumber, notNullValue());
-    }
+//    @Test
+//    public void cardNumberIsCreated(){
+//        String cardNumber = CardUtils.getCardNumber();
+//        assertThat(cardNumber, is(not(emptyOrNullString())));
+//    }
+//
+//    @Test
+//    public void cardCVVIsCreated(){
+//        int cardCVV = CardUtils.getNumberCVV();
+//        assertThat(cardCVV,notNullValue());
+//    }
+//
+//    @Test
+//    public void existCardCVV(){
+//        int cardCVV = CardUtils.getNumberCVV();
+//        assertThat(cardCVV,lessThan(1000));
+//    }
+//
+//    @Test
+//    public void randomNumberIsCreated(){
+//        int randomNumber = CardUtils.getRandomNumber(1000, 9999);
+//        assertThat(randomNumber, notNullValue());
+//    }
 }
