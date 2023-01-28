@@ -21,7 +21,7 @@ const app = createApp({
             this.queryString = location.search;
             let params = new URLSearchParams(this.queryString);
             let id = params.get("id")
-            axios.get("http://localhost:8080/api/accounts/" + id)
+            axios.get("/api/accounts/" + id)
             .then(response => {
                 this.data = response.data
                 this.account = this.data.number

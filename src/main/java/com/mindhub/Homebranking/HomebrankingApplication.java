@@ -44,24 +44,24 @@ public class HomebrankingApplication {
 
 
 //
-			Account accountOne = new Account( "VIN001", LocalDateTime.now(), 5000 , melba,true,AccountType.SAVING);
+			Account accountOne = new Account( "VIN001", LocalDateTime.now(), 0 , melba,true,AccountType.SAVING);
 			accountRepository.save(accountOne);
-			Account accountTwo = new Account("VIN002", LocalDateTime.now().plusDays(1), 7500, melba, true, AccountType.CURRENT);
-			accountRepository.save(accountTwo);
-			Account accountThree = new Account("VIN003", LocalDateTime.now().plusDays(1), 7500, jack,true, AccountType.SAVING);
+//			Account accountTwo = new Account("VIN002", LocalDateTime.now().plusDays(1), 7500, melba, true, AccountType.CURRENT);
+//			accountRepository.save(accountTwo);
+			Account accountThree = new Account("VIN003", LocalDateTime.now().plusDays(1), 0, jack,true, AccountType.SAVING);
 			accountRepository.save(accountThree);
 
 
-			Transaction transactionOne = new Transaction(1500, TransactionType.CREDIT, LocalDateTime.now(), "hairdressing", accountOne,true);
-			transactionRepository.save(transactionOne);
-			Transaction transactionTwo = new Transaction(1000, TransactionType.DEBIT, LocalDateTime.now(), "telephone subscription", accountOne,true);
-			transactionRepository.save(transactionTwo);
-			Transaction transactionThree = new Transaction(5000, TransactionType.DEBIT, LocalDateTime.now(), "Supermarket", accountTwo,true);
-			transactionRepository.save(transactionThree);
-			Transaction transactionFour = new Transaction(500, TransactionType.CREDIT, LocalDateTime.now(), "Bread", accountTwo,true);
-			transactionRepository.save(transactionFour);
-			Transaction transactionFive = new Transaction(500, TransactionType.CREDIT, LocalDateTime.now(), "Bread", accountThree,true);
-			transactionRepository.save(transactionFive);
+//			Transaction transactionOne = new Transaction(1500, TransactionType.CREDIT, LocalDateTime.now(), "hairdressing", accountOne,true);
+//			transactionRepository.save(transactionOne);
+//			Transaction transactionTwo = new Transaction(1000, TransactionType.DEBIT, LocalDateTime.now(), "telephone subscription", accountOne,true);
+//			transactionRepository.save(transactionTwo);
+//			Transaction transactionThree = new Transaction(5000, TransactionType.DEBIT, LocalDateTime.now(), "Supermarket", accountTwo,true);
+//			transactionRepository.save(transactionThree);
+//			Transaction transactionFour = new Transaction(500, TransactionType.CREDIT, LocalDateTime.now(), "Bread", accountTwo,true);
+//			transactionRepository.save(transactionFour);
+//			Transaction transactionFive = new Transaction(500, TransactionType.CREDIT, LocalDateTime.now(), "Bread", accountThree,true);
+//			transactionRepository.save(transactionFive);
 
 
 			Loan loanMortgage = new Loan("Mortgage", 500000, List.of(12,24,36,48,60), 1.50);
@@ -72,20 +72,20 @@ public class HomebrankingApplication {
 			loanRepository.save(loanAutomotive);
 
 
-			ClientLoan loanMelbaOne = new ClientLoan(400000, 60, LocalDateTime.now(), melba, loanMortgage);
-			clientLoanRepository.save(loanMelbaOne);
-			ClientLoan loanMelbaTwo = new ClientLoan(50000, 12, LocalDateTime.now(), melba, loanPersonal);
-			clientLoanRepository.save(loanMelbaTwo);
-			ClientLoan loanJackOne = new ClientLoan(100000, 24, LocalDateTime.now(), jack, loanPersonal);
-			clientLoanRepository.save(loanJackOne);
-			ClientLoan loanJackTwo = new ClientLoan(200000, 36, LocalDateTime.now(), jack, loanAutomotive);
-			clientLoanRepository.save(loanJackTwo);
+//			ClientLoan loanMelbaOne = new ClientLoan(400000, 60, LocalDateTime.now(), melba, loanMortgage);
+//			clientLoanRepository.save(loanMelbaOne);
+//			ClientLoan loanMelbaTwo = new ClientLoan(50000, 12, LocalDateTime.now(), melba, loanPersonal);
+//			clientLoanRepository.save(loanMelbaTwo);
+//			ClientLoan loanJackOne = new ClientLoan(100000, 24, LocalDateTime.now(), jack, loanPersonal);
+//			clientLoanRepository.save(loanJackOne);
+//			ClientLoan loanJackTwo = new ClientLoan(200000, 36, LocalDateTime.now(), jack, loanAutomotive);
+//			clientLoanRepository.save(loanJackTwo);
 
 			Card cardMelba = new Card(melba.getFirstName() + " " + melba.getLastName(), "4235 5643 6785 8975", 457, LocalDate.now(), LocalDate.now().plusYears(5), CardType.DEBIT , CardColor.GOLD, melba,true, accountOne);
 			cardRepository.save(cardMelba);
 			Card cardMelbaTwo = new Card(melba.getFirstName() + " " + melba.getLastName(), "4367 8754 9087 7896", 875, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.TITANIUM, melba,true, accountOne);
 			cardRepository.save(cardMelbaTwo);
-			Card cardMelbaThree = new Card(melba.getFirstName() + " " + melba.getLastName(), "4562 0788 9956 5437", 657, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, melba,true, accountTwo);
+			Card cardMelbaThree = new Card(melba.getFirstName() + " " + melba.getLastName(), "4562 0788 9956 5437", 657, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, melba,true, accountOne);
 			cardRepository.save(cardMelbaThree);
 			Card cardJack = new Card(jack.getFirstName() + " " + jack.getLastName(), "4467 2878 9912 2304", 902, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, jack,true, accountThree);
 			cardRepository.save(cardJack);
