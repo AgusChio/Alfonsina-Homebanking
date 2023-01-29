@@ -17,6 +17,8 @@ public class AccountDTO {
 
     private List<TransactionDTO> transactions;
 
+    private  List<CardDTO> cards;
+
     private boolean active_account;
 
     private AccountType accountType;
@@ -27,6 +29,7 @@ public class AccountDTO {
         creationDate = account.getCreationDate();
         balance = account.getBalance();
         transactions = account.getTransactions().stream().map(transaction -> new TransactionDTO(transaction)).collect(Collectors.toList());
+        cards = account.getCards().stream().filter(card -> card.isActive_card()).map(card -> new CardDTO(card) ).collect(Collectors.toList());
         active_account = account.isActive_account();
         accountType = account.getAccountType();
     }
@@ -52,6 +55,10 @@ public class AccountDTO {
 
     public List<TransactionDTO> getTransactions() {
         return transactions;
+    }
+
+    public List<CardDTO> getCards() {
+        return cards;
     }
 
     public boolean isActive_account() {

@@ -81,14 +81,14 @@ public class HomebrankingApplication {
 //			ClientLoan loanJackTwo = new ClientLoan(200000, 36, LocalDateTime.now(), jack, loanAutomotive);
 //			clientLoanRepository.save(loanJackTwo);
 
-			Card cardMelba = new Card(melba.getFirstName() + " " + melba.getLastName(), "4235 5643 6785 8975", 457, LocalDate.now(), LocalDate.now().plusYears(5), CardType.DEBIT , CardColor.GOLD, melba,true, accountOne);
-			cardRepository.save(cardMelba);
-			Card cardMelbaTwo = new Card(melba.getFirstName() + " " + melba.getLastName(), "4367 8754 9087 7896", 875, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.TITANIUM, melba,true, accountOne);
-			cardRepository.save(cardMelbaTwo);
-			Card cardMelbaThree = new Card(melba.getFirstName() + " " + melba.getLastName(), "4562 0788 9956 5437", 657, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, melba,true, accountOne);
-			cardRepository.save(cardMelbaThree);
-			Card cardJack = new Card(jack.getFirstName() + " " + jack.getLastName(), "4467 2878 9912 2304", 902, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, jack,true, accountThree);
-			cardRepository.save(cardJack);
+//			Card cardMelba = new Card(melba.getFirstName() + " " + melba.getLastName(), "4235 5643 6785 8975", 457, LocalDate.now(), LocalDate.now().plusYears(5), CardType.DEBIT , CardColor.GOLD, melba,true, accountOne);
+//			cardRepository.save(cardMelba);
+//			Card cardMelbaTwo = new Card(melba.getFirstName() + " " + melba.getLastName(), "4367 8754 9087 7896", 875, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.TITANIUM, melba,true, accountOne);
+//			cardRepository.save(cardMelbaTwo);
+//			Card cardMelbaThree = new Card(melba.getFirstName() + " " + melba.getLastName(), "4562 0788 9956 5437", 657, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, melba,true, accountOne);
+//			cardRepository.save(cardMelbaThree);
+//			Card cardJack = new Card(jack.getFirstName() + " " + jack.getLastName(), "4467 2878 9912 2304", 902, LocalDate.now(), LocalDate.now().plusYears(5), CardType.CREDIT , CardColor.SILVER, jack,true, accountThree);
+//			cardRepository.save(cardJack);
 
 		};
 	}

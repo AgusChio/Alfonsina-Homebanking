@@ -68,6 +68,10 @@ public class Account {
         return accountType;
     }
 
+    public Set<Card> getCards() {
+        return cards;
+    }
+
     public boolean isActive_account() {
         return active_account;
     }
@@ -89,6 +93,14 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void setCards(Set<Card> cards) {
+        this.cards = cards;
     }
 
     public void setActive_account(boolean active_account) {

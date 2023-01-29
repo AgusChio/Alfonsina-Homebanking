@@ -49,6 +49,10 @@ public class LoanController {
         Loan loanExist = loanService.getLoansById(loanApplicationDTO.getIdLoans());
         Account accountDestiny = accountService.findByNumberAccount(loanApplicationDTO.getAccountDestiny());
 
+        if (loanApplicationDTO.getAmount() < 0){
+            return new ResponseEntity<>("Incorrect Amount", HttpStatus.FORBIDDEN);
+        }
+
         if (loanApplicationDTO.getAmount() == 0){
             return new ResponseEntity<>("Missing Amount", HttpStatus.FORBIDDEN);
         }

@@ -1,11 +1,9 @@
 package com.mindhub.Homebranking.controllers;
 
 import com.mindhub.Homebranking.dto.AccountDTO;
-import com.mindhub.Homebranking.models.Account;
-import com.mindhub.Homebranking.models.AccountType;
-import com.mindhub.Homebranking.models.Client;
-import com.mindhub.Homebranking.models.Transaction;
+import com.mindhub.Homebranking.models.*;
 import com.mindhub.Homebranking.services.AccountService;
+import com.mindhub.Homebranking.services.CardService;
 import com.mindhub.Homebranking.services.ClientService;
 import com.mindhub.Homebranking.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +30,10 @@ public class AccountController {
 
     @Autowired
     private TransactionService transactionService;
+
+    @Autowired
+    private CardService cardService;
+
 
 
     @RequestMapping("/accounts")
@@ -61,10 +63,16 @@ public class AccountController {
         Set<Account> accounts = client.getAccounts();
         Account accountClient = accountService.getAccountsById(id);
         Account accountFound = accounts.stream().filter(account -> account == accountClient).findFirst().orElse(null);
+        Set<Card> accountCards = accountFound.getCards().stream().filter(card -> card.isActive_card() == true).collect(Collectors.toSet());
 
         if (accountClient.getBalance() > 0 ){
-            return new ResponseEntity<>("Cannot delete a account with balance",HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("You can't delete a account with balance",HttpStatus.FORBIDDEN);
         }
+
+        if(accountCards.size() > 0) {
+            return new ResponseEntity<>("You can't delete a account with cards", HttpStatus.FORBIDDEN);
+        }
+
 
         accountService.getAccountsById(accountFound.getId()).setActive_account(false);
         List<Transaction> transactionsFounds = accountFound.getTransactions().stream().map(transaction -> {
@@ -73,6 +81,7 @@ public class AccountController {
         }).collect(Collectors.toList());
         transactionService.saveAllTransaction(transactionsFounds);
         accountService.saveAccount(accountFound);
+
 
         return new ResponseEntity<>("Account Delete", HttpStatus.OK);
     }

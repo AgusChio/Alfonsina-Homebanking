@@ -37,7 +37,7 @@ public class TransactionController {
     @Transactional
     @PostMapping("/transactions")
     public ResponseEntity<Object> createTransaction(Authentication authentication,
-                                                    @RequestParam double amount,
+                                                    @RequestParam Double amount,
                                                     @RequestParam String description,
                                                     @RequestParam String oAccount,
                                                     @RequestParam String dAccount)
@@ -46,6 +46,10 @@ public class TransactionController {
         Account originAccount = accountService.findByNumberAccount(oAccount);
         Account destinyAccount = accountService.findByNumberAccount(dAccount);
         Set<Account> accountExist =  client.getAccounts().stream().filter(account1 -> account1.getNumber().equals(originAccount)).collect(Collectors.toSet());
+
+        if (amount.isNaN() || amount.isInfinite() || amount < 0){
+            return new ResponseEntity<>("The amount is incorrect", HttpStatus.FORBIDDEN);
+        }
 
         if (amount == 0) {
             return new ResponseEntity<>("Missing Amount", HttpStatus.EXPECTATION_FAILED);
@@ -100,6 +104,11 @@ public class TransactionController {
         Client client = clientService.findByEmail(authentication.getName());
         Card cardNumber = cardService.getCardByNumber(cardApplicationDTO.getNumber());
         Account account = accountService.getAccountsById(cardNumber.getAccount().getId());
+
+
+        if (cardApplicationDTO.getAmount() < 0 ){
+            return new ResponseEntity<>("The amount is incorrect", HttpStatus.FORBIDDEN);
+        }
 
         if (client == null){
             return new ResponseEntity<>("The client does not exist", HttpStatus.FORBIDDEN);

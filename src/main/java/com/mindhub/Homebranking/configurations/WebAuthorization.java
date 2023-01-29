@@ -23,9 +23,9 @@ public class WebAuthorization {
                 .antMatchers(HttpMethod.POST, "/api/clients","/api/generatePdf").permitAll()//indicar permisos a los tipos de usuarios para que tengan ingreso a los diferentes recursos del proyecto
                 .antMatchers(HttpMethod.POST, "/api/clients/current/accounts", "api/clients/current/cards", "api/transactions","api/transactions/payments").hasAuthority("CLIENT")
                 .antMatchers(HttpMethod.POST,"/api/loans/admin").hasAuthority("ADMIN")
-                .antMatchers("/rest/**", "/h2-console", "/web/manager.html","/web/new-Loan.html" ,"/api/clients").hasAuthority("ADMIN")
+                .antMatchers("/rest/**", "/h2-console", "/web/manager.html","/web/new-Loan.html" ,"/api/clients","/api/loans").hasAuthority("ADMIN")
                 .antMatchers("/web/index.html","/fontawesome-free-6.2.1-web/**", "/web/Assets/**", "/web/JavaScript/**", "/web/login.html", "/web/registration.html").permitAll()
-                .antMatchers("/web/**", "/api/clients/current").hasAuthority("CLIENT")
+                .antMatchers("/web/**", "/api/clients/current", "/api/loans").hasAuthority("CLIENT")
                 .antMatchers("/**").permitAll();
 
 

@@ -78,6 +78,12 @@ const app = createApp({
                                     title: 'Oops...',
                                     text: "Cannot delete a account with balance",
                                 })
+                            } else if(this.messageAlert = "Cannot delete a account with contain cards"){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: "Cannot delete a account with contain cards",
+                                })
                             }
 						});
 				}

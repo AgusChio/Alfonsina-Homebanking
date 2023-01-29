@@ -56,6 +56,12 @@ const app = createApp({
                             title: 'Oops...',
                             text: 'The amount is 0',
                         })
+                    } else if(this.amount < 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'The amount is incorrect',
+                        })
                     } else if(this.cvv === 0) {
                         Swal.fire({
                             icon: 'error',

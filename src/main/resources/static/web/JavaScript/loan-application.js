@@ -87,11 +87,25 @@ const app = createApp({
                                 text: "The amount must be greater than $5000",
                             })
                         }
+                        else if(this.messageAlert == "The amount requested is greater than the amount of the loan"){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "The amount requested is greater than the amount of the loan",
+                            })
+                        }
                         else if(this.messageAlert == "Missing Amount"){
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: "Missing Amount",
+                            })
+                        }
+                        else if(this.messageAlert == "Incorrect Amount"){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "Incorrect Amount",
                             })
                         }
                         else{

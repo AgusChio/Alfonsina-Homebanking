@@ -77,6 +77,13 @@ const app = createApp({
                                 text: "Your Destiny Account doesn't exist",
                             })
                         }
+                        else if(this.messageAlert == "The amount is incorrect"){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "The amount is incorrect",
+                            })
+                        } 
                         else{
                             Swal.fire({
                                 icon: 'question',
